@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Astro Store | Recrutamento Staff</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top, #3b147d 0%, #16072d 40%, #08020f 100%);
+            color: white;
+            padding: 25px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .logo {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 15px;
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #8b2cff, #315cff);
+            box-shadow: 0 0 35px rgba(113, 48, 255, 0.45);
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #c9c1d8;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .form-card {
+            background: rgba(20, 10, 36, 0.92);
+            border: 1px solid rgba(145, 76, 255, 0.35);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(10px);
+        }
+
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 19px;
+            margin-bottom: 18px;
+            color: #ffffff;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: rgba(145, 76, 255, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #ddd6e8;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 13px 14px;
+            margin-bottom: 17px;
+            border: 1px solid #432467;
+            border-radius: 11px;
+            outline: none;
+            background: #11091c;
+            color: white;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #8b3dff;
+            box-shadow: 0 0 0 3px rgba(139, 61, 255, 0.12);
+        }
+
+        input::placeholder {
+            color: #756b82;
+        }
+
+        .checkbox-box {
+            background: #11091c;
+            border: 1px solid #432467;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            font-weight: normal;
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        .checkbox-label input {
+            width: auto;
+            margin: 3px 0 0;
+            accent-color: #8b3dff;
+        }
+
+        .warning {
+            padding: 14px;
+            border-radius: 12px;
+            background: rgba(255, 170, 0, 0.08);
+            border: 1px solid rgba(255, 170, 0, 0.2);
+            color: #ddd0b5;
+            font-size: 13px;
+            line-height: 1.5;
+            margin-bottom: 22px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #8b2cff, #315cff);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 8px 25px rgba(95, 44, 255, 0.25);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .success {
+            display: none;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .success-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #6d2cff;
+            font-size: 32px;
+        }
+
+        .success h2 {
+            margin-bottom: 10px;
+        }
+
+        .success p {
+            color: #c9c1d8;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            color: #766d82;
+            font-size: 12px;
+            margin-top: 18px;
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            .form-card {
+                padding: 19px;
+                border-radius: 16px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            .section-title {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="header">
+        <div class="logo">A</div>
+
+        <h1>ASTRO STORE</h1>
+
+        <p class="subtitle">
+            Formulário oficial de recrutamento para Staff.
+            Preencha todos os campos com atenção.
+        </p>
+    </header>
+
+    <div class="form-card">
+
+        <form id="staffForm">
+
+            <!-- DADOS PESSOAIS -->
+            <div class="section">
+
+                <div class="section-title">
+                    👤 Dados pessoais
+                </div>
+
+                <label for="nome">Nome completo</label>
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Digite seu nome completo"
+                    required
+                >
+
+                <label for="nascimento">Data de nascimento</label>
+                <input
+                    type="date"
+                    id="nascimento"
+                    name="nascimento"
+                    required
+                >
+
+                <label for="cpf">CPF</label>
+                <input
+                    type="text"
+                    id="cpf"
+                    name="cpf"
+                    placeholder="000.000.000-00"
+                    maxlength="14"
+                    required
+                >
+
+                <label for="pai">Nome completo do pai</label>
+                <input
+                    type="text"
+                    id="pai"
+                    name="pai"
+                    placeholder="Digite o nome completo"
+                    required
+                >
+
+                <label for="mae">Nome completo da mãe</label>
+                <input
+                    type="text"
+                    id="mae"
+                    name="mae"
+                    placeholder="Digite o nome completo"
+                    required
+                >
+
+                <label for="telefonePai">Número de contato do pai</label>
+                <input
+                    type="tel"
+                    id="telefonePai"
+                    name="telefonePai"
+                    placeholder="(00) 00000-0000"
+                    required
+                >
+
+                <label for="telefoneMae">Número de contato da mãe</label>
+                <input
+                    type="tel"
+                    id="telefoneMae"
+                    name="telefoneMae"
+                    placeholder="(00) 00000-0000"
+                    required
+                >
+
+            </div>
+
+            <!-- DISCORD -->
+            <div class="section">
+
+                <div class="section-title">
+                    💬 Dados do Discord
+                </div>
+
+                <label for="discord">Nome de usuário</label>
+                <input
+                    type="text"
+                    id="discord"
+                    name="discord"
+                    placeholder="ex: usuario123"
+                    required
+                >
+
+                <label for="discordId">ID do Discord</label>
+                <input
+                    type="text"
+                    id="discordId"
+                    name="discordId"
+                    placeholder="Digite seu ID do Discord"
+                    required
+                >
+
+                <label for="tempo">
