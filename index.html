@@ -521,22 +521,18 @@ form.addEventListener("submit", function(event) {
         method: "POST",
         body: dados,
         mode: "no-cors"
-    })
-    .then(() => {
-        form.style.display = "none";
-        success.style.display = "block";
+    });
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    })
-    .catch(() => {
-        alert("Erro ao enviar o formulário.");
+    form.style.display = "none";
+    success.style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
     });
 });
 
-</script>
+    </script>
 
 </body>
 </html>
