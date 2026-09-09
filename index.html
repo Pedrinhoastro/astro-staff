@@ -348,4 +348,185 @@
                     required
                 >
 
-                <label for="tempo">
+                <!-- EXPERIÊNCIA -->
+<div class="section">
+
+    <div class="section-title">
+        🛡️ Experiência
+    </div>
+
+    <label for="experiencia">
+        Você já foi Staff em algum servidor?
+    </label>
+
+    <select
+        id="experiencia"
+        name="experiencia"
+        required
+    >
+        <option value="">Selecione uma opção</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select>
+
+    <label for="experienciaDetalhes">
+        Conte sobre sua experiência
+    </label>
+
+    <textarea
+        id="experienciaDetalhes"
+        name="experienciaDetalhes"
+        placeholder="Conte sobre cargos ou servidores em que já atuou..."
+        required
+    ></textarea>
+
+</div>
+
+<!-- MOTIVAÇÃO -->
+<div class="section">
+
+    <div class="section-title">
+        ⭐ Motivação
+    </div>
+
+    <label for="motivo">
+        Por que você quer entrar para a Staff?
+    </label>
+
+    <textarea
+        id="motivo"
+        name="motivo"
+        placeholder="Explique por que quer fazer parte da equipe..."
+        required
+    ></textarea>
+
+</div>
+
+<!-- DISPONIBILIDADE -->
+<div class="section">
+
+    <div class="section-title">
+        ⏰ Disponibilidade
+    </div>
+
+    <label for="disponibilidade">
+        Qual sua disponibilidade?
+    </label>
+
+    <select
+        id="disponibilidade"
+        name="disponibilidade"
+        required
+    >
+        <option value="">Selecione uma opção</option>
+
+        <option value="1-2">
+            1 a 2 horas por dia
+        </option>
+
+        <option value="3-4">
+            3 a 4 horas por dia
+        </option>
+
+        <option value="5+">
+            5 horas ou mais por dia
+        </option>
+
+        <option value="variavel">
+            Varia conforme o dia
+        </option>
+    </select>
+
+</div>
+
+<!-- CONFIRMAÇÃO -->
+<div class="section">
+
+    <div class="section-title">
+        📋 Confirmação
+    </div>
+
+    <div class="warning">
+        ⚠️ Preencha o formulário com informações verdadeiras.
+        O envio da candidatura não garante aprovação para a Staff.
+    </div>
+
+    <div class="checkbox-box">
+
+        <label class="checkbox-label">
+
+            <input
+                type="checkbox"
+                id="confirmacao"
+                required
+            >
+
+            <span>
+                Confirmo que as informações fornecidas são verdadeiras
+                e estou ciente de que minha candidatura será analisada
+                pela equipe da Astro Store.
+            </span>
+
+        </label>
+
+    </div>
+
+</div>
+
+<button type="submit">
+    🚀 Enviar candidatura
+</button>
+
+</form>
+
+<!-- MENSAGEM DE SUCESSO -->
+<div
+    class="success"
+    id="success"
+>
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h2>
+        Candidatura enviada!
+    </h2>
+
+    <p>
+        Sua candidatura foi registrada.
+        A equipe da Astro Store analisará suas respostas
+        e poderá entrar em contato pelo Discord.
+    </p>
+</div>
+
+</div>
+
+<div class="footer">
+    Astro Store • Recrutamento Staff
+</div>
+
+</div>
+
+<script>
+
+const form = document.getElementById("staffForm");
+const success = document.getElementById("success");
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    form.style.display = "none";
+    success.style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
+
+</script>
+
+</body>
+</html>
