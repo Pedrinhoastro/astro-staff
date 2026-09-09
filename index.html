@@ -513,17 +513,27 @@ const form = document.getElementById("staffForm");
 const success = document.getElementById("success");
 
 form.addEventListener("submit", function(event) {
-
     event.preventDefault();
 
-    form.style.display = "none";
-    success.style.display = "block";
+    const dados = new FormData(form);
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+    fetch("https://script.google.com/macros/s/AKfycbzkZvvo4-UAZR59I2Mb0CcG3Eu4kv57tL0hl6Vi-WOdaWb3Mem34-bP50h-4UZtDPw3/exec", {
+        method: "POST",
+        body: dados,
+        mode: "no-cors"
+    })
+    .then(() => {
+        form.style.display = "none";
+        success.style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    })
+    .catch(() => {
+        alert("Erro ao enviar o formulário.");
     });
-
 });
 
 </script>
